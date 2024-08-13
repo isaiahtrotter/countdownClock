@@ -7,67 +7,67 @@
     <style>
       body {
         font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #121212;
+        color: #ffffff;
         text-align: center;
-        padding: 50px;
-        background-color: #f0f0f0;
+        flex-direction: column;
+        padding: 20px;
+        box-sizing: border-box;
       }
 
       #clock {
-        font-size: 3em;
+        font-size: 4em;
         margin-bottom: 20px;
-        background: linear-gradient(
-          45deg,
-          #ff0040,
-          #ff8200,
-          #fffb00,
-          #42ff00,
-          #00ffea,
-          #0048ff,
-          #a800ff,
-          #ff00d4
-        );
-        background-size: 400%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: gradient 5s infinite linear;
       }
 
       #word {
-        font-size: 1.5em;
+        font-size: 16px;
+        margin-left: 4px;
+        font-weight: bold;
       }
 
-      @keyframes gradient {
-        0% {
-          background-position: 0% 50%;
+      .word-container {
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        border: 1px solid white;
+        border-radius: 100px;
+      }
+
+      @media (max-width: 768px) {
+        #clock {
+          font-size: 3em;
         }
-        100% {
-          background-position: 100% 50%;
+
+        #word {
+          font-size: 16px;
         }
       }
 
-      @keyframes tick {
-        0% {
-          transform: scale(1);
+      @media (max-width: 480px) {
+        #clock {
+          font-size: 2em;
         }
-        50% {
-          transform: scale(1.1);
-        }
-        100% {
-          transform: scale(1);
-        }
-      }
 
-      /* Add this class to trigger the tick animation */
-      .tick-animation {
-        animation: tick 0.5s ease;
+        #word {
+          font-size: 16px;
+        }
       }
     </style>
   </head>
   <body>
     <div id="clock">00:00:00</div>
-    <div id="word">Loading...</div>
+    <div class="word-container">
+      <div>Word of the day:</div>
+      <div id="word">Loading...</div>
+    </div>
 
-    <script src="word.js"></script>
-    <script src="script.js"></script>
+    <script src="/words.js"></script>
+    <script src="/script.js"></script>
   </body>
 </html>
