@@ -9,13 +9,57 @@
         font-family: Arial, sans-serif;
         text-align: center;
         padding: 50px;
+        background-color: #f0f0f0;
       }
+
       #clock {
-        font-size: 2em;
+        font-size: 3em;
         margin-bottom: 20px;
+        background: linear-gradient(
+          45deg,
+          #ff0040,
+          #ff8200,
+          #fffb00,
+          #42ff00,
+          #00ffea,
+          #0048ff,
+          #a800ff,
+          #ff00d4
+        );
+        background-size: 400%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradient 5s infinite linear;
       }
+
       #word {
         font-size: 1.5em;
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+
+      @keyframes tick {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* Add this class to trigger the tick animation */
+      .tick-animation {
+        animation: tick 0.5s ease;
       }
     </style>
   </head>

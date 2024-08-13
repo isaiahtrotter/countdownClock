@@ -4,7 +4,14 @@ function updateClock() {
   const hours = String(utcNow.getUTCHours()).padStart(2, "0");
   const minutes = String(utcNow.getUTCMinutes()).padStart(2, "0");
   const seconds = String(utcNow.getUTCSeconds()).padStart(2, "0");
-  document.getElementById("clock").textContent = `${hours}:${minutes}:${seconds}`;
+
+  const clockElement = document.getElementById("clock");
+  clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+
+  // Apply the tick animation manually on every second update
+  clockElement.classList.remove("tick-animation");
+  void clockElement.offsetWidth; // Trigger reflow to restart the animation
+  clockElement.classList.add("tick-animation");
 }
 
 function getDailyWord() {
